@@ -1,0 +1,112 @@
+.mainMenu{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    width:100%;
+    /*background: antiquewhite;*/
+    height:50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+}
+.menuLeft{
+    width:20%;
+    /*background: aqua;*/
+}
+.menuRight{
+    display: flex;
+    width:80%;
+    /*background: aquamarine;*/
+    align-items: center;
+    justify-content: flex-end;
+}
+.menuUl{
+    display: flex;
+}
+.menuList{
+    flex:1 1 auto;
+    padding:3px 25px;
+    border-right:1px solid #ccc ;
+}
+.menuList>a{
+    color:#888 ;
+}
+.menuList:hover a{
+    /*color:#ffe009;*/
+    color:#ffc833;
+}
+/*------搜尋欄------*/
+.searchForm{
+    display: flex;
+    width:800px;
+    height: 55px;
+    border:2px solid #ffc833;
+    font-size:16px;
+    align-items: center;
+    margin:0 auto;
+    border-radius:2px;
+}
+.searchBar{
+    display: block;
+    outline: none;
+    border: none;
+    flex:8;
+    height: 50px;
+    font-size: 18px;
+    padding:10px;
+    border-radius:2px;
+}
+.searchBtn{
+    flex:1;
+    display:block;
+    width:70px;
+    height:45px;
+    background: #ffc833;
+    margin:auto 3px;
+    border-radius:2px;
+}
+.searchIcon{
+    display: block;
+    width:25px;
+    height:25px;
+    margin:10px auto;
+}
+/*---phone---*/
+.searchFormPhone{
+    display: flex;
+    width:600px;
+    height: 40px;
+    border:2px solid #ffc833;
+    font-size:16px;
+    align-items: center;
+    margin:0 auto;
+    border-radius:2px;
+    /*display: none;*/
+}
+.searchBarPhone{
+    display: block;
+    outline: none;
+    border: none;
+    flex:8;
+    height: 30px;
+    font-size: 18px;
+    padding:10px;
+    border-radius:2px;
+}
+.searchBtnPhone{
+    flex:1;
+    display:block;
+    width:70px;
+    height:30px;
+    background: #ffc833;
+    margin:auto 3px;
+    border-radius:2px;
+}
+.searchIconPhone{
+    display: block;
+    width:20px;
+    height:20px;
+    margin:5px auto;
+}

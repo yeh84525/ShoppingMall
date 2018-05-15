@@ -1,0 +1,126 @@
+/*------footer------*/
+.footer-bar{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    height:160px;
+    width:100%;
+}
+.footer-bar a, span ,p{
+    letter-spacing: 1px;
+}
+.footer-left1{
+    /*display:flex;*/
+    /*flex-direction:column;*/
+    /*justify-content:flex-start;*/
+    /*flex-wrap: wrap;*/
+    /*align-content:center;*/
+    height:100px;
+    /*width:300px;*/
+    border-right:solid 1px #888;
+}
+.left1Box{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+    align-content:center;
+    height:90px;
+    width:300px;
+}
+.footer-left1 span{
+    display: block;
+    text-align: center;
+    padding-bottom:10px;
+    margin-top:-10px;
+}
+.footer-left1 a{
+    margin:0 25px;
+    color:#888;
+    text-decoration:none;
+    line-height:24px;
+}
+.footer-left2{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-content:center;
+    justify-content:flex-start;
+    height:100px;
+    width:300px;
+    border-right:solid 1px #888;
+}
+.footer-left2 a{
+    margin:0 25px;
+    color:#888;
+    text-decoration:none;
+    line-height:24px;
+}
+.footer-right2{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    height:100px;
+    width:300px;
+}
+.footer-right1{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    border-right:solid 1px #888;
+    height:100px;
+    width:300px;
+}
+.footer-right2 span, .footer-right1 span{
+    /*display: block;*/
+    text-align: center;
+    padding-bottom:10px;
+    margin-top:-10px;
+}
+.footer-right1 p{
+    margin-bottom:10px;
+}
+.copyRight{
+    padding-bottom: 15px;
+}
+.edmForm{
+    display: flex;
+    width:250px;
+    height: 30px;
+    border:1px solid #ffc833;
+    font-size:18px;
+    align-items: center;
+    margin:0 auto;
+    border-radius:2px;
+    background: #fff;
+    margin-top:15px;
+}
+.edmBar{
+    display: block;
+    outline: none;
+    border: none;
+    flex:6;
+    height: 28px;
+    font-size: 12px;
+    padding:10px;
+    border-radius:2px;
+
+}
+.edmBtn{
+    flex:1.5;
+    display:block;
+    /*width:60px;*/
+    height:25px;
+    background: #ffc833;
+    margin:auto 2px;
+    border-radius:2px;
+    text-align: center;
+    line-height:25px;
+}
+.edmBtn p{
+    font-size:12px;
+}

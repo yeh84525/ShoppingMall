@@ -1,0 +1,69 @@
+* {
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '微軟正黑體';
+    transition: all .5s;
+}
+a {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+}
+a:visited {
+    color:inherit;
+}
+li{
+    display: block;
+    list-style: none;
+    color: #888;
+}
+header li{
+    cursor: pointer;
+}
+
+h1 {
+    color: #888888;
+}
+
+h2 {
+    color: #888888;
+    /*font-size: 20px;*/
+}
+button:active{
+    outline: none;
+}
+
+Select:focus{
+    outline: none;
+}
+input{
+    outline:none;
+}
+/*------wrap------*/
+.wrap{
+    margin-top:50px;
+}
+/*------container------*/
+.container{
+
+    /*height:1000px;*/
+    /*width:1400px;*/
+    width:75%;
+    /*background: aqua;*/
+    margin:30px auto;
+    justify-content: center;
+}
+footer{
+    border-top:1px solid #888;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:flex-start;
+    /*background:#09141b;*/
+    height:220px;
+    width:100%;
+    color:#888;
+    font-size:14px;
+}
