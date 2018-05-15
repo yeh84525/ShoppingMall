@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>member_center</title>
+    <style>
+        * {
+            letter-spacing: 2px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微軟正黑體';
+            transition: all .5s;
+        }
+
+        a {
+            display: block;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        a:visited {
+            color:inherit;
+        }
+        li{
+            display: block;
+            list-style: none;
+            color: #888;
+        }
+        header li{
+            cursor: pointer;
+        }
+
+        h1 {
+            color: #888888;
+        }
+
+        h2 {
+            color: #888888;
+            /*font-size: 20px;*/
+        }
+        button:active{
+            outline: none;
+        }
+
+        Select:focus{
+            outline: none;
+        }
+
+        /*------menu------*/
+        .mainMenu {
+            width: 100%;
+            /*background: antiquewhite;*/
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .menuLeft {
+            width: 20%;
+            /*background: aqua;*/
+        }
+
+        .menuRight {
+            display: flex;
+            width: 80%;
+            /*background: aquamarine;*/
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .menuUl {
+            display: flex;
+        }
+
+        .menuList {
+            flex: 1 1 auto;
+            padding: 3px 25px;
+            border-right: 1px solid #ccc;
+        }
+
+        .menuList:hover a{
+            /*color:#ffe009;*/
+            color: #ffc833;
+        }
+
+        /*------搜尋欄------*/
+        .searchForm {
+            display: flex;
+            width: 800px;
+            height: 55px;
+            border: 2px solid #ffc833;
+            font-size: 16px;
+            align-items: center;
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .searchBar {
+            display: block;
+            outline: none;
+            border: none;
+            flex: 8;
+            height: 50px;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 2px;
+        }
+
+        .searchBtn {
+            flex: 1;
+            display: block;
+            width: 70px;
+            height: 45px;
+            background: #ffc833;
+            margin: auto 3px;
+            border-radius: 2px;
+        }
+
+        .searchIcon {
+            display: block;
+            width: 25px;
+            height: 25px;
+            margin: 10px auto;
+        }
+
+        /*------container------*/
+        .container {
+
+            /*height:1000px;*/
+            /*width:1400px;*/
+            width: 75%;
+            /*background: aqua;*/
+            margin: 30px auto;
+            justify-content: center;
+        }
+
+        /*---memberBox---*/
+        .memberBox {
+            display: flex;
+            margin:60px auto;
+        }
+
+        /*---左側aside memberBar---*/
+        .memberBar {
+            flex: 1;
+            /*background-color: #b3daff;*/
+        }
+        .asideListTitle{
+            font-weight: bold;
+            font-size: 20px;
+            color: #666666;
+            text-align: left;
+            padding: 0 0 35px 10px;
+            border-bottom: 1px solid #666;
+        }
+        .asideUl>li>a{
+            display: block;
+            padding: 20px 10px;
+            margin: 30px 0;
+            color: #666666;
+        }
+        .asideUl>li>a:hover{
+            background-color: #ffc833;
+            color:#fff;
+        }
+
+        /*-當前頁-*/
+        .asideUl>li:nth-child(4) a{
+            background-color: #ffc833;
+            color:#fff;
+        }
+
+        /*---右側資料 memberMain layout---*/
+        .memberMain {
+            flex: 5;
+            text-align: center;
+            /*background-color: #ed9da0;*/
+        }
+        .memberMain h2 {
+            margin: 50px auto;
+            font-weight: bold;
+            color: #666;
+        }
+        /*--history table--*/
+        table {
+            width: 85%;
+            max-width: 85%;
+            margin:  0 auto;
+            border-collapse: collapse;
+        }
+        table thead{
+            background: #666;
+            color: white;
+        }
+        table thead th{
+            padding: 6px 0;
+            border: 1px solid #666;
+            border-right: 1px solid #fff;
+        }
+        tbody tr td {
+            text-align: center;
+            border: 1px solid #666;
+            color: #666;
+        }
+        tbody tr .save_pic {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+        tbody tr .save_pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        tbody tr td i.far {
+            font-size: 20px;
+        }
+        /*tbody button樣式修改*/
+        tbody button {
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            background: #FFF;
+            cursor: pointer;
+        }
+        tbody .addcart{
+            color: #1F5572;
+            border-bottom: 1px solid #1F5572;
+        }
+        tbody .delete{
+            color:#666;
+        }
+        /*下方按鈕------------*/
+        .btn_a {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            margin : 5% 0;
+        }
+        .btn_a button {
+            margin:15px 45px;
+            border-radius: 28px;
+            padding:10px 40px;
+            border: 2px solid #302f3a;
+            background: transparent;
+            color:  #302f3a;
+            font-size: 1rem;
+        }
+        .btn_a button:focus {
+            outline: none;
+        }
+
+        /*------footer------*/
+        footer {
+            border-top: 1px solid #888;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            /*background:#09141b;*/
+            height: 220px;
+            width: 100%;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .footer-bar {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 160px;
+            width: 100%;
+        }
+
+        .footer-bar a, span, p {
+            letter-spacing: 1px;
+        }
+
+        .footer-left1 {
+            /*display:flex;*/
+            /*flex-direction:column;*/
+            /*justify-content:flex-start;*/
+            /*flex-wrap: wrap;*/
+            /*align-content:center;*/
+            height: 100px;
+            /*width:300px;*/
+            border-right: solid 1px #888;
+        }
+
+        .left1Box {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            align-content: center;
+            height: 90px;
+            width: 300px;
+        }
+
+        .footer-left1 span {
+            display: block;
+            text-align: center;
+            padding-bottom: 10px;
+            margin-top: -10px;
+        }
+
+        .footer-left1 a {
+            margin: 0 25px;
+            color: #888;
+            text-decoration: none;
+            line-height: 24px;
+        }
+
+        .footer-left2 {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: flex-start;
+            height: 100px;
+            width: 300px;
+            border-right: solid 1px #888;
+        }
+
+        .footer-left2 a {
+            margin: 0 25px;
+            color: #888;
+            text-decoration: none;
+            line-height: 24px;
+        }
+
+        .footer-right2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100px;
+            width: 300px;
+        }
+
+        .footer-right1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border-right: solid 1px #888;
+            height: 100px;
+            width: 300px;
+        }
+
+        .footer-right2 span, .footer-right1 span {
+            /*display: block;*/
+            text-align: center;
+            padding-bottom: 10px;
+            margin-top: -10px;
+        }
+
+        .footer-right1 p {
+            margin-bottom: 10px;
+        }
+
+        .copyRight {
+            padding-bottom: 15px;
+        }
+
+        .edmForm {
+            display: flex;
+            width: 250px;
+            height: 30px;
+            border: 1px solid #ffc833;
+            font-size: 18px;
+            align-items: center;
+            margin: 0 auto;
+            border-radius: 2px;
+            background: #fff;
+            margin-top: 15px;
+        }
+
+        .edmBar {
+            display: block;
+            outline: none;
+            border: none;
+            flex: 6;
+            height: 28px;
+            font-size: 12px;
+            padding: 10px;
+            border-radius: 2px;
+
+        }
+        .edmBtn {
+            flex: 1.5;
+            display: block;
+            /*width:60px;*/
+            height: 25px;
+            background: #ffc833;
+            margin: auto 2px;
+            border-radius: 2px;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .edmBtn p {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<!--wrap start-->
+<div class="wrap">
+    <!--header start-->
+    <header>
+        <div class="nav">
+            <div class="mainMenu">
+                <div class="menuLeft">
+                    <h1><a href="index.html">LOGO</a></h1>
+                </div>
+                <!--menu  start-->
+                <div class="menuRight">
+                    <ul class="menuUl">
+                        <li class="menuList"><a href="member_center.html">會員中心</a></li>
+                        <li class="menuList"><a href="member_center_history.html">訂單查詢</a></li>
+                        <li class="menuList"><a>購物車</a></li>
+                        <li class="menuList"><a href="member_center_lovelist.html">喜好清單</a></li>
+                        <li class="menuList"><a>客服中心</a></li>
+                        <li class="menuList"><a>關於我</a></li>
+                        <li class="menuList"><a href="registered.html">登入</a></li>
+                    </ul>
+                </div>
+                <!--menu  end-->
+            </div>
+            <!--搜尋表單start-->
+            <form class="searchForm">
+                <input class="searchBar" type="text" placeholder="搜尋商品">
+                <a class="searchBtn">
+                    <img class="searchIcon" src="images/search.svg" alt="">
+                </a>
+            </form>
+            <!--搜尋表單end-->
+        </div>
+    </header>
+    <!--header end-->
+
+    <!--container start-->
+    <section class="container">
+        <div class="memberBox">
+            <!--aside 左側邊攔start-->
+            <aside class="memberBar">
+                <h2 class="asideListTitle">會員專區</h2>
+                <ul class="asideUl">
+                    <li><a href="member_center_infor.html">修改會員資料</a></li>
+                    <li><a href="member_center_history.html">訂購紀錄</a></li>
+                    <li><a href="member_center_password.html">密碼修改</a></li>
+                    <li><a href="member_center_lovelist.html">收藏列表</a></li>
+                    <li><a href="">會員優惠</a></li>
+                </ul>
+            </aside>
+            <!--aside end-->
+
+            <!--memberMain 右側資料start-->
+            <section class="memberMain">
+                <h2>收藏列表</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>商品圖片</th>
+                        <th>商品名稱</th>
+                        <th>單價</th>
+                        <th>加入購物車</th>
+                        <th style="border-right:1px solid #666;">刪除</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="save_pic"><img src="images/images2.jpg" alt=""></td>
+                        <td>我是商品</td>
+                        <td>NT$ 1,850</td>
+                        <td><button class="addcart">加入購物車</button></td>
+                        <td><button class="delete"><i class="far fa-trash-alt"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td class="save_pic"><img src="images/images3.jpg" alt=""></td>
+                        <td>我是商品</td>
+                        <td>NT$ 1,850</td>
+                        <td><button class="addcart">加入購物車</button></td>
+                        <td><button class="delete"><i class="far fa-trash-alt"></i></button></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="btn_a">
+                    <button class="shop_a">繼續購物</button>
+                    <button class="buy_a">前往購物車</button>
+                </div>
+
+                <!--<div class="toTop">-->
+                <!--<div class="tr"></div>-->
+                <!--<h5>TOP</h5>-->
+                <!--</div>-->
+            </section>
+            <!--memberMain 右側資料end-->
+
+        </div>
+    </section>
+    <!--container end-->
+
+    <!--footer start-->
+    <footer>
+        <div class="footer-bar">
+
+            <div class="footer-left1">
+                <span>欣旺公司網站</span>
+                <div class="left1Box">
+                    <a href="">夢寫家</a>
+                    <a href="">夢買家</a>
+                    <a href="">夢情人</a>
+                    <a href="">夢卡多</a>
+                    <a href="">夢哈啦</a>
+                    <a href="">阿貓阿狗寵物大站</a>
+                </div>
+            </div>
+            <div class="footer-left2">
+                <a class="padding_left padding_20" href="">首頁</a>
+                <a class="padding_left" href="">會員中心</a>
+                <a class="padding_left" href="">訂單查詢</a>
+                <a class="padding_left" href="">客服中心</a>
+                <a class="padding_left padding_20" href="">購物車</a>
+                <a class="padding_left" href="">關於我</a>
+                <a class="padding_left" href="">隱私權政策</a>
+                <!--<a class="padding_left" href="">收藏清單</a>-->
+            </div>
+
+            <div class="footer-right1">
+                <span>聯絡我們</span>
+
+                <p>Email: cathy@xwriter.com</p>
+                <p>地址：樹林市仁愛街3號1樓</p>
+                <p>客服電話: 02-86859630</p>
+
+            </div>
+
+            <div class="footer-right2">
+                <span>訂閱電子報</span>
+                <form class="edmForm">
+                    <input class="edmBar" type="text" placeholder="請輸入您的電子郵件">
+                    <a class="edmBtn">
+                        <p>訂閱</p>
+                    </a>
+                </form>
+
+            </div>
+
+
+        </div>
+
+        <div class="copyRight">
+            欣旺資訊股份有限公司 © 2018 All Rights Reserved.
+        </div>
+
+    </footer>
+    <!--footer end-->
+</div>
+<!--wrap end-->
+
+<script>
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <title>Index</title>
+    <style>
+        * {
+            letter-spacing: 2px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微軟正黑體';
+            transition: all .5s;
+        }
+        a {
+            display: block;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        a:visited {
+            color:inherit;
+        }
+        li{
+            display: block;
+            list-style: none;
+            color: #888;
+        }
+        header li{
+            cursor: pointer;
+        }
+
+        h1 {
+            color: #888888;
+        }
+
+        h2 {
+            color: #888888;
+            /*font-size: 20px;*/
+        }
+        button:active{
+            outline: none;
+        }
+
+        Select:focus{
+            outline: none;
+        }
+        /*------menu------*/
+        .wrap{
+            margin-top:50px;
+        }
+        /*header{*/
+            /*position: fixed;*/
+            /*top:0;*/
+            /*left:0;*/
+        /*}*/
+        .mainMenu{
+            position: fixed;
+            top:0;
+            left:0;
+            right:0;
+            width:100%;
+            /*background: antiquewhite;*/
+            height:50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 50;
+        }
+        .menuLeft{
+            width:20%;
+            /*background: aqua;*/
+        }
+        .menuRight{
+            display: flex;
+            width:80%;
+            /*background: aquamarine;*/
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .menuUl{
+            display: flex;
+        }
+        .menuList{
+            flex:1 1 auto;
+            padding:3px 25px;
+            border-right:1px solid #ccc ;
+        }
+        .menuList>a{
+            color:#888 ;
+        }
+        .menuList:hover a{
+            /*color:#ffe009;*/
+            color:#ffc833;
+        }
+        /*------搜尋欄------*/
+        .searchForm{
+            display: flex;
+            width:800px;
+            height: 55px;
+            border:2px solid #ffc833;
+            font-size:16px;
+            align-items: center;
+            margin:0 auto;
+            border-radius:2px;
+        }
+        .searchBar{
+            display: block;
+            outline: none;
+            border: none;
+            flex:8;
+            height: 50px;
+            font-size: 18px;
+            padding:10px;
+            border-radius:2px;
+        }
+        .searchBtn{
+            flex:1;
+            display:block;
+            width:70px;
+            height:45px;
+            background: #ffc833;
+            margin:auto 3px;
+            border-radius:2px;
+        }
+        .searchIcon{
+            display: block;
+            width:25px;
+            height:25px;
+            margin:10px auto;
+        }
+        /*---phone---*/
+        .searchFormPhone{
+            display: flex;
+            width:600px;
+            height: 40px;
+            border:2px solid #ffc833;
+            font-size:16px;
+            align-items: center;
+            margin:0 auto;
+            border-radius:2px;
+            /*display: none;*/
+        }
+        .searchBarPhone{
+            display: block;
+            outline: none;
+            border: none;
+            flex:8;
+            height: 30px;
+            font-size: 18px;
+            padding:10px;
+            border-radius:2px;
+        }
+        .searchBtnPhone{
+            flex:1;
+            display:block;
+            width:70px;
+            height:30px;
+            background: #ffc833;
+            margin:auto 3px;
+            border-radius:2px;
+        }
+        .searchIconPhone{
+            display: block;
+            width:20px;
+            height:20px;
+            margin:5px auto;
+        }
+        /*------container------*/
+        .container{
+
+            /*height:1000px;*/
+            /*width:1400px;*/
+            width:75%;
+            /*background: aqua;*/
+            margin:30px auto;
+            justify-content: center;
+        }
+        .advertising{
+            background:url("images/images5.jpg")no-repeat 50% 50%;
+            width:100%;
+            height:250px;
+            /*background:#cccccc;*/
+            border:1px solid #ccc;
+            margin-bottom:40px;
+            background-size: cover;
+        }
+        /*-- article2 kind--*/
+        .kind{
+            width:100%;
+            /*height:300px;*/
+            /*border:1px solid #ccc;*/
+            margin-bottom:40px;
+        }
+        .kindUl{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .kind.scroll{
+            position:fixed;
+            top:50px;
+            left:0;
+            right:0;
+            background:#f7f7f7;
+            z-index:50;
+            margin: 0 auto;
+        }
+        .kindUl>li>a{
+            padding:10px 0 10px 16px;
+
+        }
+        .fas{
+            margin-left:8px;
+            padding-right:12px;
+            border-right: 1px solid #888888;
+        }
+        /*-- article3 product--*/
+        .product{
+            /*width:100%;*/
+            /*height:600px;*/
+            /*border:1px solid #ccc;*/
+            margin-bottom:40px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .productH2{
+            padding:0 0 0 20px;
+        }
+        .productBox{
+            /*width:15.5%;*/
+            /*min-width: 220px;*/
+            margin:.5% 1.3%;
+            flex: 0 1 200px;
+            /*height:300px;*/
+            /*background: #ffc833;*/
+            border:1px solid #e9e9e9;
+            border-radius: 3px;
+            overflow: hidden;
+            box-shadow: 1px 1px 10px #e9e9e9;
+        }
+        .productBox:hover{
+            position: relative;
+            top:-2px;
+        }
+        .itemImg{
+            display: block;
+            width: 200px;
+            height: 200px;
+
+            /*background: url("images/bg1.jpg") no-repeat center center;*/
+            /*background-size: cover;*/
+        }
+        .itemImg>img{
+            width:100%;
+            object-fit: cover;
+        }
+        .itemInforBox{
+            padding:5px 6px;
+            font-size: 14px;
+        }
+        .itemName{
+            display: block;
+            letter-spacing: .5px;
+            color:#666;
+            height:38px;
+            overflow: hidden;
+        }
+        .itemIconFlex{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e9e9e9;
+            padding:6px 0;
+        }
+        .itemPrice{
+            width: 40%;
+            display: block;
+            color: #ff3333;
+            margin:5px 0;
+        }
+        .shopIcon{
+            display: flex;
+        }
+        .shopIcon>figure{
+            width: 16px;
+            height:16px;
+            object-fit: cover;
+            margin:0 1px;
+        }
+        .shopIcon>figure>img{
+            width:100%;
+            /*margin:0 5px;*/
+        }
+        .itemComment{
+            display: block;
+            font-size:12px;
+            color:#888;
+            margin:8px 0 5px 0;
+        }
+        /*------footer------*/
+        footer{
+            border-top:1px solid #888;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:flex-start;
+            /*background:#09141b;*/
+            height:220px;
+            width:100%;
+            color:#888;
+            font-size:14px;
+        }
+        .footer-bar{
+            margin-top:20px;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:center;
+            height:160px;
+            width:100%;
+        }
+        .footer-bar a, span ,p{
+            letter-spacing: 1px;
+        }
+        .footer-left1{
+            /*display:flex;*/
+            /*flex-direction:column;*/
+            /*justify-content:flex-start;*/
+            /*flex-wrap: wrap;*/
+            /*align-content:center;*/
+            height:100px;
+            /*width:300px;*/
+            border-right:solid 1px #888;
+        }
+        .left1Box{
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-start;
+            flex-wrap: wrap;
+            align-content:center;
+            height:90px;
+            width:300px;
+        }
+        .footer-left1 span{
+            display: block;
+            text-align: center;
+            padding-bottom:10px;
+            margin-top:-10px;
+        }
+        .footer-left1 a{
+            margin:0 25px;
+            color:#888;
+            text-decoration:none;
+            line-height:24px;
+        }
+        .footer-left2{
+            display:flex;
+            flex-direction:column;
+            flex-wrap:wrap;
+            align-content:center;
+            justify-content:flex-start;
+            height:100px;
+            width:300px;
+            border-right:solid 1px #888;
+        }
+        .footer-left2 a{
+            margin:0 25px;
+            color:#888;
+            text-decoration:none;
+            line-height:24px;
+        }
+        .footer-right2{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:flex-start;
+            height:100px;
+            width:300px;
+        }
+        .footer-right1{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:flex-start;
+            border-right:solid 1px #888;
+            height:100px;
+            width:300px;
+        }
+        .footer-right2 span, .footer-right1 span{
+            /*display: block;*/
+            text-align: center;
+            padding-bottom:10px;
+            margin-top:-10px;
+        }
+        .footer-right1 p{
+            margin-bottom:10px;
+        }
+        .copyRight{
+            padding-bottom: 15px;
+        }
+        .edmForm{
+            display: flex;
+            width:250px;
+            height: 30px;
+            border:1px solid #ffc833;
+            font-size:18px;
+            align-items: center;
+            margin:0 auto;
+            border-radius:2px;
+            background: #fff;
+            margin-top:15px;
+        }
+        .edmBar{
+            display: block;
+            outline: none;
+            border: none;
+            flex:6;
+            height: 28px;
+            font-size: 12px;
+            padding:10px;
+            border-radius:2px;
+
+        }
+        .edmBtn{
+            flex:1.5;
+            display:block;
+            /*width:60px;*/
+            height:25px;
+            background: #ffc833;
+            margin:auto 2px;
+            border-radius:2px;
+            text-align: center;
+            line-height:25px;
+        }
+        .edmBtn p{
+            font-size:12px;
+        }
+    </style>
+</head>
+<body>
+<!--wrap start-->
+<div class="wrap">
+    <!--header start-->
+    <header>
+        <div class="nav">
+            <div class="mainMenu">
+                <div class="menuLeft">
+                    <h1><a style="color:#888;" href="index.html">LOGO</a></h1>
+                </div>
+                <!--手機搜尋表單start-->
+                <form class="searchFormPhone">
+                    <input class="searchBarPhone" type="text" placeholder="搜尋商品">
+                    <a class="searchBtnPhone">
+                        <img class="searchIconPhone" src="images/search.svg" alt="">
+                    </a>
+                </form>
+                <!--手機搜尋表單end-->
+
+                <!--menu  start-->
+                <div class="menuRight">
+                    <ul class="menuUl">
+                        <li class="menuList"><a href="member_center.html">會員中心</a></li>
+                        <li class="menuList"><a href="member_center_history.html">訂單查詢</a></li>
+                        <li class="menuList"><a>購物車</a></li>
+                        <li class="menuList"><a href="member_center_lovelist.html">喜好清單</a></li>
+                        <li class="menuList"><a>客服中心</a></li>
+                        <li class="menuList"><a>關於我</a></li>
+                        <li class="menuList"><a href="registered.html">登入</a></li>
+                    </ul>
+                </div>
+                <!--menu  end-->
+            </div>
+            <!--搜尋表單start-->
+            <form style="" class="searchForm">
+                <input class="searchBar" type="text" placeholder="搜尋商品">
+                <a class="searchBtn">
+                    <img class="searchIcon" src="images/search.svg" alt="">
+                </a>
+            </form>
+            <!--搜尋表單end-->
+        </div>
+    </header>
+    <!--header end-->
+
+    <!--container start-->
+    <section class="container">
+        <article class="advertising">
+            <div class="slide"></div>
+            <h2 style="text-align: center">廣告Slider</h2>
+        </article>
+
+        <article class="kind">
+            <!--<h2 style="text-align: center">商品分類</h2>-->
+            <ul class="kindUl">
+                <li><a href="productlist.html">美妝<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">保健<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">食品<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">旅遊<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">婦幼<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">3C<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">家電<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">服飾<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">內衣<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">鞋包配飾<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">精品/錶<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">日用品<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">居家生活<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">書店<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">運動休閒<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">家俱寢飾<i class="fas fa-angle-down"></i></a></li>
+                <li><a href="">車用百貨<i class="fas fa-angle-down"></i></a></li>
+
+            </ul>
+        </article>
+
+        <h2 class="productH2">推薦商品</h2>
+        <article class="product">
+            <!--<h2 style="text-align: center;display: block">推薦商品</h2>-->
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/bg1.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">OUTERSPACE官方SSSSEXY兩穿吊帶波浪裙</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 2,080</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (20)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/item2.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">【24H出貨】韓版皮帶磁扣掀頂蓋皮革側背包/中型...</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 299</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (20)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/item3.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">刷色割破牛仔褲(附腰帶)</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 450</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (400)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/item4.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">《Bogazy輕旅行★超值三件組》冰封行者PC可加大...</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 6,880</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (1169)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/item5.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">【N.F】涼感彈性混色男女運動排汗衫-男女款/四色可選</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 99</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (125)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/item6.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">2017韓版秋裝新款百搭條紋長袖ulzzang襯衣寬鬆顯瘦襯衫外套19441</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 179</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (499)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/bg1.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">OUTERSPACE官方SSSSEXY兩穿吊帶波浪裙</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 2,080</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (20)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/bg1.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">OUTERSPACE官方SSSSEXY兩穿吊帶波浪裙</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 2,080</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (20)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/bg1.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">OUTERSPACE官方SSSSEXY兩穿吊帶波浪裙</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 2,080</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (20)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/bg1.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">OUTERSPACE官方SSSSEXY兩穿吊帶波浪裙</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 2,080</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (20)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/bg1.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">OUTERSPACE官方SSSSEXY兩穿吊帶波浪裙</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 2,080</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (20)</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="productBox">
+                <a>
+                    <div class="itemImg"><img src="images/bg1.jpg" alt=""></div>
+                    <div class="itemInforBox">
+                        <span class="itemName">OUTERSPACE官方SSSSEXY兩穿吊帶波浪裙</span>
+                        <div class="itemIconFlex">
+                            <span class="itemPrice">$ 2,080</span>
+                            <span class="shopIcon">
+                                <figure><img src="images/711icon.jpg" alt=""></figure>
+                                <figure><img src="images/familyicon.png" alt=""></figure>
+                            </span>
+                        </div>
+                        <span class="itemComment">評價 (20)</span>
+                    </div>
+
+                </a>
+            </div>
+        </article>
+    </section>
+    <!--container end-->
+
+    <!--footer start-->
+    <footer>
+        <div class="footer-bar">
+
+            <div class="footer-left1">
+                <span>欣旺公司網站</span>
+                <div class="left1Box">
+                    <a href="">夢寫家</a>
+                    <a href="">夢買家</a>
+                    <a href="">夢情人</a>
+                    <a href="">夢卡多</a>
+                    <a href="">夢哈啦</a>
+                    <a href="">阿貓阿狗寵物大站</a>
+                </div>
+            </div>
+            <div class="footer-left2">
+                <a class="padding_left padding_20" href="">首頁</a>
+                <a class="padding_left" href="">會員中心</a>
+                <a class="padding_left" href="">訂單查詢</a>
+                <a class="padding_left" href="">客服中心</a>
+                <a class="padding_left padding_20" href="">購物車</a>
+                <a class="padding_left" href="">關於我</a>
+                <a class="padding_left" href="">隱私權政策</a>
+                <!--<a class="padding_left" href="">收藏清單</a>-->
+            </div>
+
+            <div class="footer-right1">
+                <span>聯絡我們</span>
+
+                <p>Email: cathy@xwriter.com</p>
+                <p>地址：樹林市仁愛街3號1樓</p>
+                <p>客服電話: 02-86859630</p>
+
+            </div>
+
+            <div class="footer-right2">
+                <span>訂閱電子報</span>
+                <form class="edmForm">
+                    <input class="edmBar" type="text" placeholder="請輸入您的電子郵件">
+                    <a class="edmBtn">
+                        <p>訂閱</p>
+                    </a>
+                </form>
+
+            </div>
+
+
+        </div>
+
+        <div class="copyRight">
+            欣旺資訊股份有限公司 © 2018 All Rights Reserved.
+        </div>
+
+    </footer>
+    <!--footer end-->
+</div>
+<!--wrap end-->
+
+
+<script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<script>
+    //---nav scroll fixed---
+    let searchForm = $('.searchForm');
+    let phone = $('.searchFormPhone');
+    let mainMenu = $('.mainMenu');
+
+    phone.hide();
+
+    $(window).scroll(function(){
+        let scrollNow = $(window).scrollTop();
+        console.log(scrollNow);
+
+        if(scrollNow >= 100){
+            // searchForm.hide();
+            searchForm.css('opacity','0');
+            phone.show();
+            mainMenu.css('background','#f7f7f7')
+        }else{
+            // searchForm.show();
+            searchForm.css('opacity','1');
+            phone.hide();
+            mainMenu.css('background','#fff')
+        }
+
+        if(scrollNow >= 380){
+            $('.kind').addClass('scroll');
+            $('.kindUl').css({
+                'width':'75%',
+                'margin':'0 auto',
+                'transition':'0s'
+            });
+        }else{
+            $('.kind').removeClass('scroll');
+            $('.kindUl').css('width','100%');
+        }
+
+    });
+
+
+</script>
+</body>
+</html>
